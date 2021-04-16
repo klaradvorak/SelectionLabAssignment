@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block head %}
+    <title>Speed Test</title>
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <h1>Speed test</h1>
+
+        <h2>Tests</h2>
+        <table>
+            <tr>
+                <th>Test time </th>
+                <th> Speed in Mbps</th>
+                <th>Delete</th>
+            </tr>
+            {% for test in tests %}
+                <tr>
+                    <td><b>{{ test.testDate }}</b></td>
+                    <td>{{ test.testSpeed }}</td>
+                    <td>
+                        <a href="/delete/{{test.id}}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+        <form method="post">
+            <input type="submit" value="Start Test" >
+        </form>
+    </div>
+
+{% endblock %}
